@@ -67,22 +67,53 @@ fieldset {
     border: none;
 }
 
-input {
+.searchbar {
     width: 10em;
     padding: 1.2em;
     border: none;
     border-radius: 1em;
     box-shadow: 0.1em 0.1em 0.5em black;
+    background-color: white;
+    transition: width 0.3s ease-out;
 }
 
-.search {
-    transition: width 0.4s ease-out;
+.searchbar:focus-within {
+    width: 15em;
 }
 
-.search:focus {
-    width: 20em;
+input {
+    all: unset;
+    width: calc(100% - 1.5em);
+    border-bottom: white solid 2px;
 }
 
 input:focus {
     outline: none;
+    border-color: #aaaaaa;
+}
+
+.searchbutton {
+    all: unset;
+}
+
+.searchbutton:hover {
+    cursor: pointer;
+}
+
+.loading {
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+    border: 1em solid #8d8d8d;
+    border-top: 1em solid #0cf0f0;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.hide {
+    display: none;
 }
