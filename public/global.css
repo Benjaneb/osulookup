@@ -2,17 +2,18 @@
 
 :root {
     font-size: 18px;
-    --pink: #d144c5;
-    --dark-pink: #b946b0;
-    --grey: #696969;
-    --dark-grey: rgb(85, 85, 85);
+    --pink: #e030d2;
+    --dark-pink: #cf61c6;
+    --light-grey: #696969;
+    --grey: #555555;
+    --dark-grey: #444444;
 }
 
 body {
     width: 100vw;
     min-height: 100vh;
     margin: 0;
-    background-color: var(--grey);
+    background-color: var(--dark-grey);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,7 +23,7 @@ body {
 header {
     display: flex;
     align-items: center;
-    background-color: var(--dark-grey);
+    background-color: var(--grey);
     padding: 0.8em;
 }
 
@@ -38,11 +39,16 @@ main {
 }
 
 footer {
-    background-color: var(--dark-grey);
+    background-color: var(--grey);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1em;
+}
+
+article {
+    background-color: var(--grey);
+    padding: 2em;
 }
 
 p,
@@ -52,12 +58,12 @@ h1 {
 }
 
 a {
-    color: var(--pink);
+    color: var(--dark-pink);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--dark-pink);
+    color: var(--pink);
 }
 
 fieldset {

@@ -7,5 +7,7 @@
 </header>
 
 <style>
-    
+    nav a {
+        font-size: 1.3rem;
+    }
 </style>
