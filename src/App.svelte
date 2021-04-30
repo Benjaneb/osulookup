@@ -13,8 +13,8 @@
 			},
 			body: JSON.stringify({
 				"grant_type": "client_credentials",
-				"client_id": 6654,
-				"client_secret": "IuBG8rnvw0U60si1KDMhkaBnGyhMvLSGkhSNWKPu",
+				"client_id": process.env.CLIENT_ID,
+				"client_secret": process.env.CLIENT_SECRET,
 				"scope": "public"
 			})
 		})
@@ -69,6 +69,7 @@
 			<article class="user">
 				<img src={user.avatar_url} alt="Profile picture" class="pfp">
 				<h2 class="username">{user.username}</h2>
+				
 			</article>
 		{:catch error}
 			<p class="error">{error.message}</p>
