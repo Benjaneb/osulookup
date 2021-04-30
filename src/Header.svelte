@@ -6,8 +6,19 @@
     </nav>
 </header>
 
-<style>
+<style lang="scss">
     nav a {
         font-size: 1.3rem;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        background-color: var(--grey);
+        padding: 0.8em;
+        
+        & * {
+            margin: 0 1.5em;
+        }
     }
 </style>

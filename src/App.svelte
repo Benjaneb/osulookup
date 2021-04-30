@@ -43,7 +43,7 @@
 	}
 
 	let build = false;
-
+	
 	const startBuild = () => { build = true; }
 </script>
 
@@ -77,6 +77,66 @@
 </main>
 <Footer/>
 
-<style>
+<style lang="scss">
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
 
+	fieldset {
+		border: none;
+	}
+
+	.searchbar {
+		width: 10em;
+		padding: 1.2em;
+		border: none;
+		border-radius: 1em;
+		box-shadow: 0.1em 0.1em 0.5em black;
+		background-color: white;
+		transition: width 0.3s ease-out;
+
+		&:focus-within {
+			width: 15em;
+		}
+	}
+
+	input {
+		all: unset;
+		width: calc(100% - 1.5em);
+		border-bottom: white solid 2px;
+
+		&:focus {
+			outline: none;
+			border-color: #aaaaaa;
+		}
+	}
+
+	.searchbutton {
+		all: unset;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.loading {
+		width: 6em;
+		height: 6em;
+		border-radius: 50%;
+		border: 1em solid #8d8d8d;
+		border-top: 1em solid #0cf0f0;
+		animation: spin 1s linear infinite;
+	}
+
+	@keyframes spin {
+		0% {transform: rotate(0deg);}
+		100% {transform: rotate(360deg);}
+	}
+
+	.error {
+		color: red;
+	}
 </style>
