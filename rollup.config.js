@@ -5,10 +5,6 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import css from "rollup-plugin-css-only";
 import preprocess from "svelte-preprocess";
-import replace from '@rollup/plugin-replace';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -46,14 +42,6 @@ export default {
     file: "public/build/bundle.js",
   },
   plugins: [
-    replace({
-      // "process.env.CLIENT_SECRET": JSON.stringify("yeet")
-      process: JSON.stringify({
-        env: {
-          CLIENT_SECRET: "a7iIVdGhTRciaeRbI8lCUc3CqRjSQzqxxfy8WjIr"
-        }
-      })
-    }),
     svelte({
       compilerOptions: {
         // enable run-time checks when not in production

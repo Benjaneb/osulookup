@@ -4,8 +4,6 @@
 	import Header from "./Header.svelte";
 	import Footer from "./Footer.svelte";
 
-	console.log(`${process.env.CLIENT_SECRET}`);
-
 	async function authorize() { // Fetch token
 		return await fetch("https://glacial-peak-29237.herokuapp.com/https://osu.ppy.sh/oauth/token", {
 			method: "post",
@@ -16,7 +14,7 @@
 			body: JSON.stringify({
 				"grant_type": "client_credentials",
 				"client_id": 6654,
-				"client_secret": `${process.env.CLIENT_SECRET}`,
+				"client_secret": "a7iIVdGhTRciaeRbI8lCUc3CqRjSQzqxxfy8WjIr",
 				"scope": "public"
 			})
 		})
