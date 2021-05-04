@@ -3,11 +3,11 @@
 </footer>
 
 <style lang="scss">
+    @import "./mixin.scss";
+
     footer {
+        @include flexCenterAll(column);
         background-color: var(--grey);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         padding: 1em;
     }
 </style>
