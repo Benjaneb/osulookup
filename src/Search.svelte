@@ -11,7 +11,7 @@
         <fieldset>
             <legend>Enter an Osu username to get started!</legend>
             <div class="searchbar">
-                <input required type="text" placeholder="Cookiezi" bind:value={$searchName}>
+                <input required type="text" placeholder="Benjaneb" bind:value={$searchName}>
                 <button type="submit" class="searchbutton">
                     <i class="fas fa-search"></i>
                 </button>

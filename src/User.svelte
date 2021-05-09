@@ -5,10 +5,21 @@
     import { build } from "./store.js";
     export let user;
 
+    let dead = false;
+
     console.log(user);
-    const dateRegEx = /(\d+\-\d+\-\d+)T\d+:\d+:\d+\+\d+:\d+/;
-    user.last_visit = user.last_visit.match(dateRegEx);
-    user.join_date = user.join_date.match(dateRegEx);
+
+    if (user) {
+        const dateRegEx = /(\d+\-\d+\-\d+)T\d+:\d+:\d+\+\d+:\d+/;
+        if (user.last_visit) user.last_visit = user.last_visit.match(dateRegEx);
+        else user.last_visit = ["", "Unknown"];
+        if (!user.statistics.global_rank) {
+            user.statistics.global_rank = "Unknown";
+            user.statistics.country_rank = "Unknown";
+            dead = true;
+        }
+        user.join_date = user.join_date.match(dateRegEx);
+    }
 
     const toggleBuild = () => { build.set(!$build) };
 </script>
@@ -31,14 +42,16 @@
         <div class="profile-top">
             <img src={user.avatar_url} alt="Profile picture" width="150" in:fly={{ x: -1000, duration: 500 }}>
             <div>
-                <h2 class="username" in:fly={{ x: 1000, duration: 500 }}>{user.username} ({user.country_code})</h2>
+                <h2 class="username" in:fly={{ x: 1000, duration: 500 }}>{user.username} ({user.country.name})</h2>
                 <span class="rank" title="Global"><i class="fas fa-globe"></i> #{user.statistics.global_rank}</span>
                 <span class="rank" title="Country"><i class="fas fa-flag"></i> #{user.statistics.country_rank}</span>
                 <div class="badges">
                 {#if user.is_bot}
                     <p>Bot</p>
                 {/if}
-                {#if user.is_active}
+                {#if dead}
+                    <p class="red">Dead</p>
+                {:else if user.is_active}
                     <p class="green">Active</p>
                 {:else}
                     <p class="red">Inactive</p>
