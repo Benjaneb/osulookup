@@ -1,15 +1,17 @@
 <script>
+	"use strict";
+
     import { fade, fly } from "svelte/transition";
-    import { build, searchName } from "./store";
+    import { build, searchName } from "./store.js";
 </script>
 
 
-<article out:fly={{ x: 800, duration: 400 }}>
+<article in:fly={{ x: -800, duration: 400 }} out:fly={{ x: 800, duration: 400 }}>
     <form on:submit|preventDefault={() => build.set(!$build)}>
         <fieldset>
             <legend>Enter an Osu username to get started!</legend>
             <div class="searchbar">
-                <input type="text" placeholder="Cookiezi" bind:value={$searchName}>
+                <input required type="text" placeholder="Cookiezi" bind:value={$searchName}>
                 <button type="submit" class="searchbutton">
                     <i class="fas fa-search"></i>
                 </button>
@@ -17,11 +19,12 @@
         </fieldset>
     </form>
     <p>When the website hasn't been used for a while, searching can take a few seconds.</p>
+	<p>Don't know what this is all about? Check the <button>About</button> page.</p>
 </article>
 
 
 <style lang="scss">
-    @import "./mixin.scss";
+    @import "mixin";
 
     article,
     fieldset {
@@ -67,5 +70,9 @@
 		&:hover {
 			cursor: pointer;
 		}
+	}
+
+	p > button {
+		@include link;
 	}
 </style>

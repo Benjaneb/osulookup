@@ -1,9 +1,10 @@
 <footer>
-    <p>Created by <a href="https://osu.ppy.sh/users/9158995">Benjaneb</a></p>
+    <p>Created by <a href="https://osu.ppy.sh/users/9158995" target="_blank">Benjaneb</a></p>
 </footer>
 
+
 <style lang="scss">
-    @import "./mixin.scss";
+    @import "mixin";
 
     footer {
         @include flexCenterAll(column);

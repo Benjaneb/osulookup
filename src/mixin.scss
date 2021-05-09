@@ -4,3 +4,13 @@
     align-items: center;
     flex-direction: $dir;
 }
+
+@mixin link {
+    all: unset;
+    color: var(--pink);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--dark-pink);
+    }
+}

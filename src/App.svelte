@@ -1,5 +1,5 @@
 <script>
-	"using strict";
+	"use strict";
 
 	import { fade, fly } from "svelte/transition";
 
@@ -36,39 +36,43 @@
 	async function getUser() {
 		const token = await authorize();
 
-		return fetch(`https://glacial-peak-29237.herokuapp.com/https://osu.ppy.sh/api/v2/users/${$searchName}/osu`, {
+		return fetch(`https://glacial-peak-29237.herokuapp.com/https://osu.ppy.sh/api/v2/users/${$searchName}`, {
 			headers: {
 				Authorization: `Bearer ${token}`
 			}
 		})
 		.then(response => {
-			return response.json();
+			if(!response.ok) {
+				return false;
+			} else return response.json();
 		})
-		.catch(err => console.error(err));
+		.catch(err => {
+			console.error(err)
+		});
 	}
 </script>
 
 
 <Header/>
 <main>
-	{#if !$build}
-		<Search/>
-	{/if}
-	{#if $build}
-		{#await getUser()}
-			<div class="loading"></div>
-		{:then user}
-			<User user={user}/>
-		{:catch error}
-			<p class="error">{error.message}</p>
-		{/await}
-	{/if}
+{#if !$build}
+	<Search/>
+{/if}
+{#if $build}
+	{#await getUser()}
+		<div class="loading" in:fade out:fade></div>
+	{:then user}
+		<User user={user}/>
+	{:catch error}
+		<p class="error">{error.message}</p>
+	{/await}
+{/if}
 </main>
 <Footer/>
 
 
 <style lang="scss">
-	@import "./mixin.scss";
+	@import "mixin";
 
 	main {
 		@include flexCenterAll(column);

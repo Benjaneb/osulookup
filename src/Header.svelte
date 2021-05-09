@@ -1,14 +1,19 @@
 <header>
-    <a href="index"><h1>Osu!Lookup</h1></a>
+    <button><h1>Osu!Lookup</h1></button>
     <nav>
-        <a href="index">Home</a>
-        <a href="">About</a>
+        <button>Home</button>
+        <button>About</button>
     </nav>
 </header>
 
+
 <style lang="scss">
-    nav a {
+    @import "mixin";
+
+    nav button {
+        @include link;
         font-size: 1.3rem;
+        margin: 0 1.5em;
     }
 
     header {
@@ -19,6 +24,10 @@
         
         & * {
             margin: 0 1.5em;
+        }
+
+        & > button {
+            @include link;
         }
     }
 </style>

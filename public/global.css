@@ -2,11 +2,11 @@
 
 :root {
     font-size: 18px;
-    --pink: #e030d2;
-    --dark-pink: #cf61c6;
+    --pink: #cf61c6;
+    --dark-pink: #e030d2;
     --light-grey: #696969;
     --grey: #555555;
-    --dark-grey: #444444;
+    --dark-grey: #3d3d3d;
 }
 
 body {
@@ -29,15 +29,17 @@ article {
 
 p,
 legend,
-h1 {
+h1,
+h2,
+li {
     color: white;
 }
 
 a {
-    color: var(--dark-pink);
+    color: var(--pink);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--pink);
+    color: var(--dark-pink);
 }
