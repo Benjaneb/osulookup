@@ -4,7 +4,7 @@
 
 
 <style lang="scss">
-    @import "mixin";
+    @import "scss/mixin";
 
     footer {
         @include flexCenterAll(column);

@@ -24,14 +24,18 @@ body {
 article {
     background-color: var(--grey);
     padding: 2em;
+    margin: 3em 0;
     border-radius: 4px;
+    max-width: calc(60ch - 4em);
 }
 
 p,
 legend,
 h1,
 h2,
-li {
+h3,
+li,
+span {
     color: white;
 }
 

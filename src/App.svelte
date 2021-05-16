@@ -7,11 +7,12 @@
 	import Footer from "./Footer.svelte";
 	import Search from "./Search.svelte";
 	import User from "./User.svelte";
+	import About from "./About.svelte";
 
-	import { build, searchName } from "./store.js";
+	import { search, searchName, about, home } from "./js/store.js";
 
-	async function authorize() { // Fetch token
-		return await fetch("https://glacial-peak-29237.herokuapp.com/https://osu.ppy.sh/oauth/token", {
+	function authorize() { // Fetch token
+		return fetch("https://glacial-peak-29237.herokuapp.com/https://osu.ppy.sh/oauth/token", {
 			method: "post",
 			headers: {
 				"Accept": "application/json",
@@ -33,10 +34,8 @@
 		.catch(err => console.error(err));
 	}
 
-	async function getUser() {
-		const token = await authorize();
-
-		return fetch(`https://glacial-peak-29237.herokuapp.com/https://osu.ppy.sh/api/v2/users/${$searchName}`, {
+	async function userStats(token) {
+		return await fetch(`https://glacial-peak-29237.herokuapp.com/https://osu.ppy.sh/api/v2/users/${$searchName}`, {
 			headers: {
 				Authorization: `Bearer ${token}`
 			}
@@ -46,33 +45,57 @@
 				return false;
 			} else return response.json();
 		})
-		.catch(err => {
-			console.error(err)
-		});
+		.catch(err => console.error(err));
+	}
+
+	async function userScores(token, id) {
+		return await fetch(`https://glacial-peak-29237.herokuapp.com/https://osu.ppy.sh/api/v2/users/${id}/scores/best`, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+				limit: 10
+			}
+		})
+		.then(response => { return response.json() })
+		.catch(err => console.error(err));
+	}
+
+	async function getUser() {
+		const token = await authorize();
+		let userInfo = {
+			user: {},
+			scores: {}
+		};
+		userInfo.user = await userStats(token);
+		userInfo.scores = await userScores(token, userInfo.user.id);
+
+		return userInfo;
 	}
 </script>
 
 
 <Header/>
 <main>
-{#if !$build}
+{#if $home}
 	<Search/>
 {/if}
-{#if $build}
+{#if $search}
 	{#await getUser()}
 		<div class="loading" in:fade out:fade></div>
-	{:then user}
-		<User user={user}/>
+	{:then userInfo}
+		<User {...userInfo}/>
 	{:catch error}
 		<p class="error">{error.message}</p>
 	{/await}
+{/if}
+{#if $about}
+	<About/>
 {/if}
 </main>
 <Footer/>
 
 
 <style lang="scss">
-	@import "mixin";
+	@import "scss/mixin";
 
 	main {
 		@include flexCenterAll(column);
