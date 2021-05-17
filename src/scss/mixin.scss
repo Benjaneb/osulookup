@@ -14,3 +14,7 @@
         color: var(--dark-pink);
     }
 }
+
+[tabindex]:focus-visible {
+    outline: 0.2em var(--light-grey) solid;
+}

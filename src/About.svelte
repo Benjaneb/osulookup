@@ -11,9 +11,9 @@
         and also get a quick evaluation of the stats in the form of badges.
     </p>
     <p>
-        The website was made using <a href="https://svelte.dev/" target="_blank">Svelte</a> to enable an easy way to 
-        create a Single Page Application with reactive elements, styled using <a href="https://sass-lang.com/" target="_blank">Sass</a>
-        for more feature-rich CSS and last but not least hosted by <a href="https://heroku.com/" target="_blank">Heroku</a> 
+        The website was made using <a href="https://svelte.dev/" target="_blank" rel="noopener">Svelte</a> to enable an easy way to 
+        create a Single Page Application with reactive elements, styled using <a href="https://sass-lang.com/" target="_blank" rel="noopener">Sass</a>
+        for more feature-rich CSS and last but not least hosted by <a href="https://heroku.com/" target="_blank" rel="noopener">Heroku</a> 
         for quick and easy deployment.
     </p>
 </article>

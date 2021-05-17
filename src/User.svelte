@@ -40,12 +40,12 @@
     <article class="error" in:fade out:fly={{ x: 800, duration: 400 }}>
         <p>Couldn't find a user with that username!</p>
         <p>Check for misspellings.</p>
-        <button on:click={goHome}>Return</button>
+        <button on:click={goHome} tabindex="0">Return</button>
     </article>
 {:else}
     <article class="user" in:fade out:fly={{ x: 1000, duration: 500 }}>
         <div class="header">
-            <button class="return" on:click={goHome}>
+            <button class="return" on:click={goHome} tabindex="0">
                 <i class="fas fa-reply"></i> Return
             </button>
             <p>Mode: {user.playmode}</p>
@@ -224,7 +224,7 @@
     .score_rank {
         margin: 0 0.6em;
         font-size: 1.2em;
-        color: #caca53;
+        color: #dddd54;
         font-weight: bold;
     }
 </style>

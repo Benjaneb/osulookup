@@ -17,11 +17,11 @@
 <header>
     <div>
         <img src="images/osuLookup_logo.png" alt="Osu!Lookup logo">
-        <button on:click={goHome}><h1>Osu!Lookup</h1></button>
+        <button on:click={goHome} tabindex="0"><h1>Osu!Lookup</h1></button>
     </div>
     <nav>
-        <button on:click={goHome} id="home">Home</button>
-        <button on:click={goAbout}>About</button>
+        <button on:click={goHome} id="home" tabindex="0">Home</button>
+        <button on:click={goAbout} tabindex="0">About</button>
     </nav>
 </header>
 

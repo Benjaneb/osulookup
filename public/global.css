@@ -2,8 +2,8 @@
 
 :root {
     font-size: 18px;
-    --pink: #cf61c6;
-    --dark-pink: #e030d2;
+    --pink: #f15ad1;
+    --dark-pink: #da57bd;
     --light-grey: #696969;
     --grey: #555555;
     --dark-grey: #3d3d3d;
@@ -30,7 +30,7 @@ article {
 }
 
 p,
-legend,
+label,
 h1,
 h2,
 h3,

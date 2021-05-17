@@ -19,17 +19,19 @@
 <article in:fly={{ x: -800, duration: 400, delay: 400 }} out:fly={{ x: 800, duration: 400 }}>
     <form on:submit|preventDefault={startSearching}>
         <fieldset>
-            <legend>Enter an Osu username to get started!</legend>
+            <label for="searchInput">Enter an Osu username to get started!</label>
             <div class="searchbar">
-                <input required type="text" placeholder="Benjaneb" bind:value={$searchName}>
-                <button type="submit" class="searchbutton">
+                <input required id="searchInput" type="text" placeholder="Benjaneb" bind:value={$searchName}>
+                <button type="submit" class="searchbutton" tabindex="0" aria-label="search">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
         </fieldset>
     </form>
     <p>When the website hasn't been used for a while, searching can take a few seconds.</p>
-	<p>Don't know what this is all about? Check the <button on:click={toAbout}>About</button> page.</p>
+	<p>
+		Don't know what this is all about? Check the <button on:click={toAbout} tabindex="0">About</button> page.
+	</p>
 </article>
 
 
@@ -44,9 +46,9 @@
         }
     }
 
-	legend {
+	label {
 		font-size: 1.2rem;
-		margin: 1em;
+		margin-bottom: 1em;
 	}
 
 	.searchbar {
@@ -63,9 +65,9 @@
 		}
 	}
 
-	input {
+	#searchInput {
 		all: unset;
-		width: calc(100% - 1.5em);
+		width: calc(100% - 2.1em);
 		border-bottom: white solid 2px;
 
 		&:focus {
@@ -76,6 +78,7 @@
 
 	.searchbutton {
 		all: unset;
+		padding: 0.4em;
 
 		&:hover {
 			cursor: pointer;

@@ -1,5 +1,5 @@
 <footer>
-    <p>Created by <a href="https://osu.ppy.sh/users/9158995" target="_blank">Benjaneb</a></p>
+    <p>Created by <a href="https://osu.ppy.sh/users/9158995" target="_blank" rel="noopener">Benjaneb</a></p>
 </footer>
 
 
